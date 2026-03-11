@@ -6,6 +6,7 @@ import {
   FlaskConical,
   Drill,
   ArrowUpRight,
+  PhoneCall,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -44,6 +45,13 @@ const services = [
     desc: "Complete oral health and surgery.",
     icon: Drill,
     className: "lg:col-span-6 lg:row-span-1 bg-secondary",
+  },
+  {
+    title: "Emergency",
+    href: "/contact",
+    desc: "24/7 Urgent care and ambulance services.",
+    icon: PhoneCall,
+    className: "lg:col-span-6 bg-destructive/10 border border-destructive/20",
   },
 ];
 

@@ -11,6 +11,7 @@ import {
   Video,
   FlaskConical,
   Drill,
+  PhoneCall,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -65,6 +66,13 @@ const services = [
     href: "/dental",
     desc: "Oral care services.",
     icon: Drill,
+  },
+  {
+    title: "Emergency",
+    href: "/contact",
+    desc: "24/7 Urgent care and ambulance services.",
+    icon: PhoneCall,
+    className: "lg:col-span-6 bg-destructive/10 border border-destructive/20",
   },
 ];
 
