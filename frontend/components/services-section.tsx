@@ -73,84 +73,120 @@ export default function ServicesBento() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 lg:grid-rows-2 gap-4">
-        {services.map((service) => (
-          <Link
-            key={service.title}
-            href={service.href}
-            className={cn(
-              "group relative overflow-hidden rounded-3xl p-6 lg:p-8 transition-all",
-              service.className,
-            )}
-          >
-            <div className="relative z-10 flex h-full flex-col justify-between">
-              <div className="space-y-4">
-                <div
-                  className={cn(
-                    "inline-flex p-3 rounded-2xl",
-                    service.title === "Appointments"
-                      ? "bg-white/10"
-                      : "bg-primary/5",
-                  )}
-                >
-                  <service.icon className="size-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    {service.title}
-                  </h3>
-                  <p
-                    className={cn(
-                      "body-text xs:text-sm lg:text-lg",
-                      service.title === "Appointments"
-                        ? "text-primary-foreground/80"
-                        : "",
-                    )}
-                  >
-                    {service.desc}
-                  </p>
-                </div>
-              </div>
-              {service.title === "Appointments" && (
-                <div className="mt-8 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-3">
-                      {service.doctors?.map((src, i) => (
-                        <div
-                          key={i}
-                          className="size-10 rounded-full border-2 border-primary bg-zinc-200 overflow-hidden relative"
-                        >
-                          <Image
-                            src={src}
-                            alt={"Doctor"}
-                            fill
-                            sizes="40px"
-                            className="object-cover"
-                            priority={i < 2}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-xs font-medium text-primary-foreground/90">
-                      +12 Doctors Online
-                    </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 lg:row-span-2 gap-4">
+        {services.map((service) => {
+          const isAppointments = service.title === "Appointments";
+
+          return (
+            <Link
+              key={service.title}
+              href={service.href}
+              className={cn(
+                "group relative overflow-hidden rounded-3xl p-6 lg:p-8 transition-all duration-500",
+                "border border-border/50 hover:border-primary/50",
+                service.className,
+                isAppointments &&
+                  "shadow-xl shadow-primary/10 dark:shadow-none",
+              )}
+            >
+              {isAppointments && (
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                  <div className="absolute -right-22 top-8 h-[100%] w-[90%] md:w-[60%] lg:w-[90%]">
+                    <Image
+                      src="/appointmentImage.png"
+                      alt="Appointments"
+                      fill
+                      className="object-contain object-right-bottom transition-all duration-700 group-hover:scale-110 group-hover:-rotate-3 opacity-90 group-hover:opacity-100"
+                      priority
+                    />
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl border border-white/10 w-fit">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span className="text-xs font-bold tracking-wide">
-                      AVAILABLE NOW
-                    </span>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent z-10" />
                 </div>
               )}
-            </div>
+              <div className="relative z-20 flex h-full flex-col justify-between">
+                <div className="space-y-4">
+                  <div
+                    className={cn(
+                      "inline-flex p-3 rounded-2xl transition-all",
+                      isAppointments
+                        ? "bg-primary-foreground/10 text-primary-foreground backdrop-blur-md border border-white/10"
+                        : "bg-primary/10 text-primary",
+                    )}
+                  >
+                    <service.icon className="size-6" />
+                  </div>
 
-            <ArrowUpRight className="absolute top-8 right-8 size-6 opacity-20 group-hover:opacity-100 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </Link>
-        ))}
+                  <div className="max-w-[80%] md:max-w-[70%] lg:max-w-[65%]">
+                    <h2
+                      className={cn(
+                        "main-title text-lg mb-2",
+                        isAppointments
+                          ? "text-primary-foreground"
+                          : "text-foreground",
+                      )}
+                    >
+                      {service.title}
+                    </h2>
+                    <p
+                      className={cn(
+                        " text-base md:text-lg dark:text-zinc-400 font-light leading-relaxed",
+                        isAppointments ? "text-zinc-400" : "text-zinc-600",
+                      )}
+                    >
+                      {service.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {isAppointments && (
+                  <div className="mt-8 space-y-6">
+                    <div className="flex items-center gap-3">
+                      <div className="flex -space-x-3">
+                        {service.doctors?.map((src, i) => (
+                          <div
+                            key={i}
+                            className="size-10 rounded-full border-2 border-primary bg-background overflow-hidden relative shadow-lg"
+                          >
+                            <Image
+                              src={src}
+                              alt="Doctor"
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-[11px] font-bold text-primary-foreground uppercase tracking-wider">
+                        +12 Doctors Online
+                      </p>
+                    </div>
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary-foreground/15 backdrop-blur-xl rounded-full border border-primary-foreground/20 w-fit">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                      <span className="text-[10px] font-black tracking-widest text-primary-foreground">
+                        AVAILABLE NOW
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <ArrowUpRight
+                className={cn(
+                  "absolute top-8 right-8 size-6 z-20 transition-all",
+                  isAppointments
+                    ? "text-primary-foreground/40 group-hover:text-primary-foreground"
+                    : "text-muted-foreground/40 group-hover:text-primary",
+                  "group-hover:translate-x-1 group-hover:-translate-y-1",
+                )}
+              />
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

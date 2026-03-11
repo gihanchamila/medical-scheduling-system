@@ -38,7 +38,7 @@ export default function Footer() {
   });
 
   return (
-    <footer className="col-span-12 border-t  mt-10 sm:mt-5 border-border bg-background">
+    <footer className="col-span-12 border-t my-10 sm:my-5 border-border bg-background">
       <div className="grid grid-cols-12 gap-y-12 xs:pt-10 md:pt-10 lg:gap-x-8">
         <div className="col-span-12 lg:col-span-4 space-y-6">
           <Link
@@ -168,8 +168,6 @@ export default function Footer() {
           </form>
         </div>
       </div>
-
-      <Separator className="bg-border/40" />
       <div className="flex flex-col md:flex-row justify-between py-8 gap-4 text-xs text-muted-foreground/60">
         <p>© 2026 HealthFlow Inc. Built with care for patients.</p>
         <div className="flex gap-6">
