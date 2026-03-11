@@ -141,4 +141,8 @@
   .span-title {
     @apply text-muted-foreground font-light;
   }
+
+  .form-label {
+    @apply text-xs uppercase tracking-widest text-muted-foreground font-bold mb-2;
+  }
 }
