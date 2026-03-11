@@ -1,7 +1,7 @@
-import Hero from "@/components/hero";
+import Hero from "@/components/hero-section";
 import ReviewSection from "@/components/review-section";
-import ServicesBento from "@/components/services";
-import WhyChoiceUs from "@/components/why-choose-us";
+import ServicesBento from "@/components/services-section";
+import WhyChoiceUs from "@/components/aboutus-section";
 export default function HomePage() {
   return (
     <>
