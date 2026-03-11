@@ -16,7 +16,10 @@ const services = [
     href: "/appointments",
     desc: "Book a specialist doctor for in-person visits with minimal waiting time.",
     icon: Calendar,
-    className: "lg:col-span-6 lg:row-span-2 bg-primary text-primary-foreground", // Featured card
+    className:
+      "lg:col-span-6 lg:row-span-2 bg-primary text-primary-foreground flex flex-col justify-between",
+    stats: "Next Available: Today, 2:00 PM",
+    doctors: ["/doc1.jpg", "/doc2.jpg", "/doc3.jpg"],
   },
   {
     title: "Pharmacy",
@@ -74,15 +77,15 @@ export default function ServicesBento() {
             key={service.title}
             href={service.href}
             className={cn(
-              "group relative overflow-hidden rounded-3xl p-6 lg:p-8 transition-all hover:shadow-md",
+              "group relative overflow-hidden rounded-3xl p-6 lg:p-8 transition-all hover:shadow-lg",
               service.className,
             )}
           >
-            <div className="flex h-full flex-col justify-between">
-              <div>
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div className="space-y-4">
                 <div
                   className={cn(
-                    "inline-flex p-3 rounded-2xl mb-4",
+                    "inline-flex p-3 rounded-2xl",
                     service.title === "Appointments"
                       ? "bg-white/10"
                       : "bg-primary/5",
@@ -90,22 +93,58 @@ export default function ServicesBento() {
                 >
                   <service.icon className="size-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
-                  {service.title}
-                  <ArrowUpRight className="size-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p
-                  className={cn(
-                    "text-sm leading-relaxed",
-                    service.title === "Appointments"
-                      ? "text-primary-foreground/80"
-                      : "text-muted-foreground",
-                  )}
-                >
-                  {service.desc}
-                </p>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
+                    {service.title}
+                  </h3>
+                  <p
+                    className={cn(
+                      "body-text xs:text-sm lg:text-lg",
+                      service.title === "Appointments"
+                        ? "text-primary-foreground/80"
+                        : "",
+                    )}
+                  >
+                    {service.desc}
+                  </p>
+                </div>
               </div>
+
+              {/* EXCLUSIVE CONTENT FOR APPOINTMENTS CARD */}
+              {service.title === "Appointments" && (
+                <div className="mt-8 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                  {/* Doctor Avatar Stack */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-3">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div
+                          key={i}
+                          className="size-10 rounded-full border-2 border-primary bg-zinc-200 overflow-hidden"
+                        >
+                          <img src={`/api/placeholder/40/40`} alt="Doctor" />
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs font-medium text-primary-foreground/90">
+                      +12 Doctors Online
+                    </p>
+                  </div>
+
+                  {/* Live Availability Badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl border border-white/10 w-fit">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span className="text-xs font-bold tracking-wide">
+                      AVAILABLE NOW
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
+
+            <ArrowUpRight className="absolute top-8 right-8 size-6 opacity-20 group-hover:opacity-100 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
           </Link>
         ))}
       </div>
