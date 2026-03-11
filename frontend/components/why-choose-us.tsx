@@ -11,7 +11,7 @@ const stats = [
 
 export default function WhyChoiceUs() {
   return (
-    <section className="col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-10">
+    <section className="col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pb-10 lg:pb-20">
       <div className="lg:col-span-5 order-2 lg:order-1">
         <div className="relative aspect-[4/5] w-full rounded-[40px] md:rounded-[60px] overflow-hidden border border-border ">
           <Image
@@ -42,7 +42,7 @@ export default function WhyChoiceUs() {
           </p>
         </div>
 
-        <div className="xs:grid xs:grid-cols-2 lg:grid-cols-4  pt-4">
+        <div className="xs:grid xs:grid-cols-2 lg:grid-cols-4 pt-4">
           {stats.map((stat) => (
             <div key={stat.label} className="space-y-2 group">
               <div className="size-10 rounded-xl bg-secondary flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-primary-foreground xs:space-y-2">

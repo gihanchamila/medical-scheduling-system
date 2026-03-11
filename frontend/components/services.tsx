@@ -60,7 +60,7 @@ const services = [
 
 export default function ServicesBento() {
   return (
-    <section className="col-span-12 py-12 lg:py-24">
+    <section className="col-span-12 pb-10 lg:pb-20">
       <div className="space-y-3 mb-12">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
           Our Services

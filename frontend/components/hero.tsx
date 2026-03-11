@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <section className="col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-10 lg:pb-20">
       <div className="lg:col-span-7">
         <div className="space-y-2">
           <Badge variant="secondary" className="font-medium">
