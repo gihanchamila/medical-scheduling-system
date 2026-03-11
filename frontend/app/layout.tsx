@@ -3,6 +3,7 @@ import { Inter, Open_Sans } from "next/font/google";
 import "./globals.css";
 import GridContainer from "@/components/grid-container";
 import { ThemeProvider } from "@/components/navigation/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <GridContainer className="xs:px-8 xs:py-8">{children}</GridContainer>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
