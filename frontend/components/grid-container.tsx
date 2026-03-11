@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"; // Standard Shadcn utility
+import { cn } from "@/lib/utils";
 
 interface GridContainerProps {
   children: React.ReactNode;
@@ -9,9 +9,8 @@ const GridContainer = ({ children, className }: GridContainerProps) => {
   return (
     <div
       className={cn(
-        "px-5",
-        "sm:col-span-4 sm:grid sm:grid-cols-4 sm:gap-5",
-        "lg:col-start-2 lg:col-span-11 lg:grid-cols-12",
+        "xs:grid xs:grid-cols-4 xs:col-span-4 xs:col-start-1",
+        "lg:col-start-2 lg:col-span-10 lg:grid-cols-12",
         className,
       )}
     >
