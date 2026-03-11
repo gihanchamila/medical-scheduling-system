@@ -54,7 +54,7 @@ export default function ReviewSection() {
 
   return (
     <section className="col-span-12 pb-10 lg:pb-20">
-      <div className="mb-10 space-y-2 px-4">
+      <div className="mb-10 space-y-2">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
           What our patients say
         </h2>
