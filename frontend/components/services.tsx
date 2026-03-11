@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import Image from "next/image";
+
 const services = [
   {
     title: "Appointments",
@@ -19,7 +21,7 @@ const services = [
     className:
       "lg:col-span-6 lg:row-span-2 bg-primary text-primary-foreground flex flex-col justify-between",
     stats: "Next Available: Today, 2:00 PM",
-    doctors: ["/doc1.jpg", "/doc2.jpg", "/doc3.jpg"],
+    doctors: ["/d1.png", "/d2.png", "/d3.png", "/d4.png"],
   },
   {
     title: "Pharmacy",
@@ -77,7 +79,7 @@ export default function ServicesBento() {
             key={service.title}
             href={service.href}
             className={cn(
-              "group relative overflow-hidden rounded-3xl p-6 lg:p-8 transition-all hover:shadow-lg",
+              "group relative overflow-hidden rounded-3xl p-6 lg:p-8 transition-all",
               service.className,
             )}
           >
@@ -109,19 +111,23 @@ export default function ServicesBento() {
                   </p>
                 </div>
               </div>
-
-              {/* EXCLUSIVE CONTENT FOR APPOINTMENTS CARD */}
               {service.title === "Appointments" && (
                 <div className="mt-8 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                  {/* Doctor Avatar Stack */}
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-3">
-                      {[1, 2, 3, 4].map((i) => (
+                      {service.doctors?.map((src, i) => (
                         <div
                           key={i}
-                          className="size-10 rounded-full border-2 border-primary bg-zinc-200 overflow-hidden"
+                          className="size-10 rounded-full border-2 border-primary bg-zinc-200 overflow-hidden relative"
                         >
-                          <img src={`/api/placeholder/40/40`} alt="Doctor" />
+                          <Image
+                            src={src}
+                            alt={"Doctor"}
+                            fill
+                            sizes="40px"
+                            className="object-cover"
+                            priority={i < 2}
+                          />
                         </div>
                       ))}
                     </div>
@@ -129,8 +135,6 @@ export default function ServicesBento() {
                       +12 Doctors Online
                     </p>
                   </div>
-
-                  {/* Live Availability Badge */}
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl border border-white/10 w-fit">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
