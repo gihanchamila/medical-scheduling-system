@@ -128,3 +128,17 @@
     @apply font-sans;
   }
 }
+
+@layer utilities {
+  .body-text {
+    @apply text-base md:text-xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed;
+  }
+
+  .main-title {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight mt-2;
+  }
+
+  .span-title {
+    @apply text-muted-foreground font-light;
+  }
+}

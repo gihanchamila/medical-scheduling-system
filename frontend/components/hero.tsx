@@ -11,7 +11,7 @@ export default function Hero() {
           <Badge variant="secondary" className="font-medium">
             ISO 9001:2015 Certified
           </Badge>
-          <h1 className="text-3xl">Your Health, Scheduled with Ease.</h1>
+          <h1 className="main-title">Your Health, Scheduled with Ease.</h1>
         </div>
 
         <p className="max-w-xl text-base md:text-xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mt-2.5">
@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
         <div className="flex items-center gap-4 text-sm text-muted-foreground pt-5">
           <div className="flex items-center gap-1">
-            <CheckCircle2 className="size-4 text-green-500" /> 50+ Specialists
+            <CheckCircle2 className="size-4 text-green-500" /> 80+ Specialists
           </div>
           <div className="flex items-center gap-1">
             <CheckCircle2 className="size-4 text-green-500" /> 24/7 Availability
