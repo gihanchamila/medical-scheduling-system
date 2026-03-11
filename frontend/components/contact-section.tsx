@@ -49,7 +49,7 @@ export default function ContactSection() {
   });
 
   return (
-    <section className="col-span-12 py-12 md:py-24 grid grid-cols-12 gap-y-12 lg:gap-x-12 px-4 md:px-0">
+    <section className="col-span-12 grid grid-cols-12">
       <div className="col-span-12 lg:col-span-5 flex flex-col justify-start space-y-12">
         <div className="space-y-4">
           <h2 className="main-title">Get in touch</h2>
@@ -84,8 +84,8 @@ export default function ContactSection() {
         viewport={{ once: true }}
         className="col-span-12 lg:col-span-7"
       >
-        <div className="rounded-xl border border-border bg-card text-card-foreground">
-          <div className="p-4 md:p-8">
+        <div className="rounded-xl lg:border lg:border-border lg:bg-card text-card-foreground xs:mt-10 lg:mt-0">
+          <div className="lg:p-6">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
