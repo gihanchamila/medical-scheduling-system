@@ -163,12 +163,14 @@ const NavigationContainer = () => {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button
-            variant="outline"
-            className="hidden sm:inline-flex font-medium"
-          >
-            Login
-          </Button>
+          <Link href="/auth/login" passHref>
+            <Button
+              variant="outline"
+              className="hidden sm:inline-flex font-medium"
+            >
+              Login
+            </Button>
+          </Link>
           <Button className="font-medium">Register</Button>
         </div>
       </div>
