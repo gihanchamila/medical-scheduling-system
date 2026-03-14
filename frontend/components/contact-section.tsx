@@ -50,7 +50,7 @@ export default function ContactSection() {
 
   return (
     <section className="col-span-12 grid grid-cols-12">
-      <div className="col-span-12 lg:col-span-5 flex flex-col justify-start space-y-12">
+      <div className="col-span-12 lg:col-span-8 flex flex-col justify-start space-y-12">
         <div className="space-y-4">
           <h2 className="main-title">Get in touch</h2>
           <p className="body-text">
@@ -82,7 +82,7 @@ export default function ContactSection() {
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="col-span-12 lg:col-span-7"
+        className="col-span-12 lg:col-span-4"
       >
         <div className="rounded-xl lg:border lg:border-border lg:bg-card text-card-foreground xs:mt-10 lg:mt-0">
           <div className="lg:p-6">
