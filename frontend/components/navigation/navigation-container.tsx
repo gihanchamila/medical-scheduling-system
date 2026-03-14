@@ -162,16 +162,24 @@ const NavigationContainer = () => {
         </NavigationMenu>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <Link href="/auth/login" passHref>
+          {/* <Link href="/auth/login" passHref>
             <Button
               variant="outline"
               className="hidden sm:inline-flex font-medium"
             >
               Login
             </Button>
+          </Link> */}
+          <ThemeToggle />
+          <Link href="/payment/online-payment" passHref>
+            <Button
+              variant="default"
+              className="hidden sm:inline-flex font-medium"
+            >
+              Online Payment
+            </Button>
           </Link>
-          <Button className="font-medium">Register</Button>
+          {/* <Button className="font-medium">Register</Button> */}
         </div>
       </div>
       <div className="flex items-center md:hidden">
